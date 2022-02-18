@@ -44,59 +44,20 @@
             />
           </div>
         </div>
+        <!-- end Title -->
+
         <!-- Profile Picture -->
         <div
           class="relative col-span-8 row-span-1 bg-black bg-bottom bg-no-repeat bg-contain md:row-span-2 min-h-max md:col-start-5 md:col-span-4 profile-picture md:py-24"
         >
-          <div class="grid grid-cols-4 mb-4">
-            <div>
-              <a class="text-white hover:text-rose-600" href="#">Proyectos</a>
-            </div>
-            <div>
-              <a class="text-white hover:text-rose-600" href="#">Blog</a>
-            </div>
-          </div>
+          <!-- Nav -->
+          <NavLinks />
+          <!-- SocailNetworks -->
           <div class="absolute right-0">
-            <ul data-test="social">
-              <!-- github -->
-              <li class="mb-3 text-gray-300">
-                <a href="https://github.com/dmpb" target="_blank" rel="noopener noreferrer">
-                  <i class="fa-brands fa-github-alt"></i>
-                </a>
-              </li>
-              <!-- linkedin -->
-              <li class="mb-3 text-gray-300">
-                <a
-                  href="https://www.linkedin.com/in/dmpb/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-              </li>
-              <!-- instagram -->
-              <li class="mb-3 text-gray-300">
-                <a
-                  href="https://www.instagram.com/dmpb.xo/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i class="fa-brands fa-instagram"></i>
-                </a>
-              </li>
-              <!-- facebook -->
-              <li class="mb-3 text-gray-300">
-                <a
-                  href="https://www.facebook.com/dmpb.XD/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i class="fa-brands fa-facebook-f"></i>
-                </a>
-              </li>
-            </ul>
+            <SocialNetworks />
           </div>
         </div>
+        <!-- end Profile Picture -->
       </div>
     </div>
   </div>
@@ -104,6 +65,8 @@
 
 <script>
 import Typewriter from 'typewriter-effect/dist/core';
+import SocialNetworks from '../components/SocialNetworks.vue';
+import NavLinks from '../components/NavLinks.vue';
 
 export default {
   name: "Index",
@@ -159,6 +122,7 @@ export default {
       .deleteAll()
       .start();
   },
+  components: { SocialNetworks, NavLinks }
 }
 </script>
 <style>

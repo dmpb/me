@@ -17,10 +17,4 @@ describe("Index Page", () => {
     const logos = wrapper.findAll('[data-test="logos"] > img');
     expect(logos).toHaveLength(13);
   });
-
-  test("should contain social networks", () => {
-    const wrapper = mount(Index);
-    const social = wrapper.findAll('[data-test="social"] > li');
-    expect(social).toHaveLength(4);
-  });
 });
