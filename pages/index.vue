@@ -10,13 +10,16 @@
           <!-- Hi -->
           <div>
             <p class="mb-4 text-5xl font-bold text-white md:text-7xl">
-              Hola, me llamo
-              <span class="text-rose-600">Daniel Ponce</span>
+              <span data-test="title_one">Hola, me llamo</span>
+              <span class="text-rose-600" data-test="title_two">Daniel Ponce</span>
             </p>
-            <p class="text-white" id="hi"></p>
+            <p class="text-white" ref="hi"></p>
           </div>
           <!-- Logos -->
-          <div class="grid grid-cols-7 gap-6 mt-6 md:grid-cols-5 lg:grid-cols-8 place-items-center">
+          <div
+            class="grid grid-cols-7 gap-6 mt-6 md:grid-cols-5 lg:grid-cols-8 place-items-center"
+            data-test="logos"
+          >
             <img src="~/assets/images/logos/php.png" alt="Logo de php" class="w-full" />
             <img src="~/assets/images/logos/js.png" alt="Logo de javascript" class="w-full" />
             <img src="~/assets/images/logos/css.png" alt="Logo de css" class="w-full" />
@@ -54,7 +57,7 @@
             </div>
           </div>
           <div class="absolute right-0">
-            <ul>
+            <ul data-test="social">
               <!-- github -->
               <li class="mb-3 text-gray-300">
                 <a href="https://github.com/dmpb" target="_blank" rel="noopener noreferrer">
@@ -103,10 +106,10 @@
 import Typewriter from 'typewriter-effect/dist/core';
 
 export default {
-  name: 'Index',
+  name: "Index",
   mounted() {
     // TypeWriter
-    const hi = new Typewriter("#hi", {
+    const hi = new Typewriter(this.$refs.hi, {
       loop: true,
       cursor: "",
       delay: 30,
