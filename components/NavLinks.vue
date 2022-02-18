@@ -1,7 +1,7 @@
 <template>
-  <ul class="grid grid-cols-4 gap-3">
+  <ul class="grid grid-cols-2 gap-3 sm:grid-cols-4">
     <li>
-      <a class="text-white hover:text-rose-600" href="#" data-test="link">Proyectos</a>
+      <nuxt-link to="/projects" class="text-white hover:text-rose-600" data-test="link">Proyectos</nuxt-link>
     </li>
     <li>
       <a class="text-white hover:text-rose-600" href="#" data-test="link">Blog</a>
