@@ -11,9 +11,7 @@
           <div>
             <p class="mb-4 text-5xl font-bold text-white md:text-7xl">
               Hola, me llamo
-              <span
-                class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-rose-700"
-              >Daniel Ponce</span>
+              <span class="text-rose-600">Daniel Ponce</span>
             </p>
             <p class="text-white" id="hi"></p>
           </div>
