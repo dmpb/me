@@ -1,3 +1,5 @@
+const url = "https://dmpb.github.io/me";
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -12,9 +14,9 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "me",
+    title: "Daniel Ponce",
     htmlAttrs: {
-      lang: "en",
+      lang: "es",
     },
     meta: [
       { charset: "utf-8" },
@@ -22,7 +24,34 @@ export default {
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [{ rel: "icon", type: "image/x-icon", href: url + "/favicon.ico" }],
+    meta: [
+      {
+        name: "description",
+        content: "Hola, me llamo Daniel Ponce",
+      },
+      {
+        property: "og:title",
+        content: "Daniel Ponce",
+      },
+      {
+        property: "og:description",
+        content:
+          "Hola, soy un Desarrollador de Software aposionado en crear productos que las personas realmente amen.",
+      },
+      {
+        property: "og:type",
+        content: "article",
+      },
+      {
+        property: "og:url",
+        content: url,
+      },
+      {
+        property: "og:image",
+        content: url + "/daniel-ponce-profile.jpg",
+      },
+    ],
     script: [
       {
         src: "https://kit.fontawesome.com/3821d4dff7.js",
