@@ -2,7 +2,7 @@
   <div class="relative h-screen overflow-hidden bg-black">
     <!-- Container -->
     <div class="container h-full px-3 mx-auto">
-      <div class="grid h-full grid-flow-row grid-cols-8 grid-rows-2">
+      <div class="flex flex-col h-full grid-flow-row grid-cols-8 grid-rows-2 md:flex-none md:grid">
         <!-- Title -->
         <div
           class="flex flex-col col-span-8 row-span-1 py-12 md:mr-8 md:row-span-2 md:justify-between md:py-24 md:col-span-4 xl:col-span-3"
@@ -48,7 +48,7 @@
 
         <!-- Profile Picture -->
         <div
-          class="relative col-span-8 row-span-1 bg-black bg-bottom bg-no-repeat bg-contain md:row-span-2 min-h-max md:col-start-5 md:col-span-4 profile-picture md:py-24"
+          class="relative flex-auto col-span-8 row-span-1 bg-black bg-bottom bg-no-repeat bg-contain md:row-span-2 min-h-max md:col-start-5 md:col-span-4 profile-picture md:py-24"
         >
           <!-- Nav -->
           <NavLinks />
