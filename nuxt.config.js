@@ -71,6 +71,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     "@nuxt/postcss8",
+    "@nuxtjs/google-analytics",
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -91,5 +92,9 @@ export default {
         theme: "prism-themes/themes/prism-one-dark.css",
       },
     },
+  },
+  // Google Analitycs: https://google-analytics.nuxtjs.org/
+  googleAnalytics: {
+    id: "G-BR27DERQBP",
   },
 };
