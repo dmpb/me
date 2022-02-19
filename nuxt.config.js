@@ -71,11 +71,10 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     "@nuxt/postcss8",
-    "@nuxtjs/google-analytics",
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxt/content"],
+  modules: ["@nuxt/content", "@nuxtjs/google-analytics"],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
