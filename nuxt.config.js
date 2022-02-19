@@ -74,7 +74,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxt/content", "@nuxtjs/google-analytics"],
+  modules: ["@nuxt/content"],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -91,9 +91,5 @@ export default {
         theme: "prism-themes/themes/prism-one-dark.css",
       },
     },
-  },
-  // Google Analitycs: https://google-analytics.nuxtjs.org/
-  googleAnalytics: {
-    id: "G-BR27DERQBP",
   },
 };
