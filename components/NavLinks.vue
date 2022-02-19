@@ -13,3 +13,9 @@
 export default {
 }
 </script>
+
+<style scoped>
+.nuxt-link-exact-active, .nuxt-link-active{
+  color: rgb(225 29 72 / var(--tw-text-opacity));
+}
+</style>
