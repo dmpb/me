@@ -42,8 +42,17 @@ export default {
       title: this.project.title + " - Proyecto"
     };
   },
-  async asyncData({ $content, params }) {
-    const projects = await $content('projects').where({ slug: params.slug }).fetch()
+  async asyncData({ $content, params, error }) {
+    const slug = params.slug
+    const projects = await $content('projects').where({ slug }).fetch()
+
+    if (!projects.length) {
+      return error({
+        statusCode: 404,
+        message: "Proyecto no encontrado"
+      })
+    }
+
     const project = projects[0]
 
     const [prev, next] = await $content('projects')
