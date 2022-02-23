@@ -37,6 +37,11 @@
 <script>
 export default {
   layout: "projects",
+  head() {
+    return {
+      title: this.project.title + " - Proyecto"
+    };
+  },
   async asyncData({ $content, params }) {
     const projects = await $content('projects').where({ slug: params.slug }).fetch()
     const project = projects[0]
