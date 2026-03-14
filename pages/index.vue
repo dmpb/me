@@ -1,7 +1,7 @@
 <template>
   <div class="relative h-screen overflow-hidden bg-black">
     <!-- Container -->
-    <div class="container h-full px-3 mx-auto">
+    <div class="container h-full px-6 mx-auto">
       <div class="flex flex-col h-full grid-flow-row grid-cols-8 grid-rows-2 md:flex-none md:grid">
         <!-- Title -->
         <div
@@ -127,6 +127,6 @@ export default {
 </script>
 <style>
 .profile-picture {
-  background-image: url("~assets/images/daniel-ponce-profile.jpg");
+  background-image: url("/projects/profile-image.png");
 }
 </style>
