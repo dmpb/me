@@ -3,17 +3,17 @@
     <!-- Nav -->
     <div class="grid grid-cols-2">
       <h1 class="font-bold text-white">
-        <nuxt-link to="/">
+        <NuxtLink to="/">
           Daniel
           <span class="text-rose-600">Ponce</span>
-        </nuxt-link>
+        </NuxtLink>
       </h1>
       <NavLinks />
     </div>
     <!-- end Nav -->
 
     <!-- Contain -->
-    <nuxt />
+    <slot />
     <!-- end Contain -->
   </div>
 </template>

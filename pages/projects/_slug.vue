@@ -6,65 +6,66 @@
       >{{ project.title }}</h2>
       <p class="text-lg text-white">{{ project.description }}</p>
     </div>
-    <nuxt-content class="mx-auto prose prose-base prose-invert" :document="project" />
+    <ContentRenderer
+      v-if="project"
+      class="mx-auto prose prose-base prose-invert"
+      :value="project"
+    />
     <div class="container mx-auto mt-12 max-w-prose">
       <div class="flex justify-between">
         <div>
-          <nuxt-link
+          <NuxtLink
             v-if="prev"
-            :to="{ name: 'projects-slug', params: { slug: prev.slug } }"
+            :to="`/projects/${prev.slug}`"
             class="text-white hover:text-red-500"
           >
             <i class="mr-2 text- fa-solid fa-arrow-left-long"></i>
             {{ prev.title }}
-          </nuxt-link>
+          </NuxtLink>
         </div>
         <div>
-          <nuxt-link
+          <NuxtLink
             v-if="next"
-            :to="{ name: 'projects-slug', params: { slug: next.slug } }"
+            :to="`/projects/${next.slug}`"
             class="text-white align-middle hover:text-rose-500"
           >
             {{ next.title }}
             <i class="ml-2 text- fa-solid fa-arrow-right-long"></i>
-          </nuxt-link>
+          </NuxtLink>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  layout: "projects",
-  head() {
-    return {
-      title: this.project.title + " - Proyecto"
-    };
-  },
-  async asyncData({ $content, params, error }) {
-    const slug = params.slug
-    const projects = await $content('projects').where({ slug }).fetch()
+<script setup>
+definePageMeta({ layout: "projects" });
 
-    if (!projects.length) {
-      return error({
-        statusCode: 404,
-        message: "Proyecto no encontrado"
-      })
-    }
+const route = useRoute();
+const slug = String(route.params.slug || "");
 
-    const project = projects[0]
+const { data: project } = await useAsyncData(`project-${slug}`, () =>
+  queryCollection("projects").where("slug", "=", slug).first()
+);
 
-    const [prev, next] = await $content('projects')
-      .sortBy('path', 'desc')
-      .surround(params.slug)
-      .fetch()
-
-    return {
-      project,
-      prev,
-      next
-    }
-  },
+if (!project.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Proyecto no encontrado",
+  });
 }
+
+useHead(() => ({
+  title: `${project.value?.title ?? "Proyecto"} - Proyecto`,
+}));
+
+const { data: surround } = await useAsyncData(`project-surround-${slug}`, () =>
+  queryCollectionItemSurroundings("projects", project.value?.path || "").order(
+    "stem",
+    "DESC"
+  )
+);
+
+const prev = computed(() => surround.value?.[0] ?? null);
+const next = computed(() => surround.value?.[1] ?? null);
 </script>

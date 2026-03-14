@@ -3,7 +3,13 @@ import Index from "@/pages/index.vue";
 
 describe("Index Page", () => {
   test("should contain the author's name", () => {
-    const wrapper = mount(Index);
+    const wrapper = mount(Index, {
+      global: {
+        stubs: {
+          NuxtLink: true,
+        },
+      },
+    });
     const title_one = wrapper.get('[data-test="title_one"]');
     const title_two = wrapper.get('[data-test="title_two"]');
     expect(title_one.text()).toBe("Hola, me llamo");
@@ -13,7 +19,13 @@ describe("Index Page", () => {
   });
 
   test("should contain the logos", () => {
-    const wrapper = mount(Index);
+    const wrapper = mount(Index, {
+      global: {
+        stubs: {
+          NuxtLink: true,
+        },
+      },
+    });
     const logos = wrapper.findAll('[data-test="logos"] > img');
     expect(logos).toHaveLength(13);
   });

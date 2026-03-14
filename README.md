@@ -54,13 +54,13 @@ The plugins directory contains JavaScript plugins that you want to run before in
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
 
-### `static`
+### `public`
 
 This directory contains your static files. Each file inside this directory is mapped to `/`.
 
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
+Example: `/public/robots.txt` is mapped as `/robots.txt`.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
+More information about the usage of this directory in [the documentation](https://nuxt.com/docs/guide/directory-structure/public).
 
 ### `store`
 

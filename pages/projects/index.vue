@@ -14,15 +14,15 @@
     <!-- List -->
     <div class="container max-w-5xl mx-auto mt-14">
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <nuxt-link
+        <NuxtLink
           class="border cursor-pointer border-neutral-400 group hover:border-white"
           v-for="(project, index) in projects"
           :key="index"
-          :to="{ name: 'projects-slug', params: { slug: project.slug } }"
+          :to="`/projects/${project.slug}`"
         >
           <img
             v-if="project.image"
-            :src="require(`~/assets/images/projects/${project.image}`)"
+            :src="projectImageUrl(project.image)"
             alt="Daniel Ponce"
             class="object-cover w-full h-40 brightness-75 group-hover:brightness-100"
           />
@@ -32,31 +32,28 @@
             >{{ project.title }}</h3>
             <p class="text-neutral-400 group-hover:text-white">{{ project.description }}</p>
           </div>
-        </nuxt-link>
+        </NuxtLink>
       </div>
     </div>
     <!-- end List -->
   </div>
 </template>
 
-<script>
-export default {
-  layout: "projects",
-  head() {
-    return {
-      title: "Daniel Ponce - Proyectos"
-    };
-  },
-  data() {
-    return {
-    }
-  },
-  async asyncData({ $content }) {
-    const projects = await $content('projects').sortBy("path", "desc").fetch()
+<script setup>
+definePageMeta({ layout: "projects" });
 
-    return { projects }
-  },
-}
+useHead({
+  title: "Daniel Ponce - Proyectos",
+});
+
+const { data: projectsData } = await useAsyncData("projects", () =>
+  queryCollection("projects").order("stem", "DESC").all()
+);
+
+const projects = computed(() => projectsData.value ?? []);
+const baseURL = useRuntimeConfig().app.baseURL;
+const projectImageUrl = (image) =>
+  `${baseURL}projects/${encodeURIComponent(image)}`;
 </script>
 
 <style>
