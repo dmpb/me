@@ -61,8 +61,6 @@
 </template>
 
 <script setup>
-definePageMeta({ layout: "projects" });
-
 useHead({
   title: "Daniel Ponce - Proyectos",
 });

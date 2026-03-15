@@ -85,7 +85,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <NuxtLink
             v-if="prev"
-            :to="`/projects/${prev.slug}`"
+            :to="prev.path"
             class="group bg-linear-to-br from-slate-500/10 to-gray-600/10 backdrop-blur-lg rounded-2xl p-6 border border-slate-500/20 hover:border-slate-500/40 transition-all duration-300"
           >
             <p class="text-sm text-slate-400 mb-2">Proyecto anterior</p>
@@ -97,7 +97,7 @@
 
           <NuxtLink
             v-if="next"
-            :to="`/projects/${next.slug}`"
+            :to="next.path"
             class="group bg-linear-to-br from-gray-500/10 to-slate-600/10 backdrop-blur-lg rounded-2xl p-6 border border-gray-500/20 hover:border-gray-500/40 transition-all duration-300 md:text-right"
           >
             <p class="text-sm text-gray-400 mb-2">Siguiente proyecto</p>
@@ -115,8 +115,6 @@
 </template>
 
 <script setup>
-definePageMeta({ layout: "projects" });
-
 const route = useRoute();
 const slug = String(route.params.slug || "");
 
