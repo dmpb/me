@@ -1,41 +1,62 @@
 <template>
-  <div>
-    <!-- Title -->
-    <div class="mt-20 text-center">
-      <h2>
-        <span
-          class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-900"
-        >Hello world</span>
-      </h2>
-      <p class="leading-loose tracking-wide text-white">Todos empezamos con un hola mundo</p>
-    </div>
-    <!-- end Title -->
+  <div
+    class="relative min-h-screen bg-linear-to-br from-slate-900 via-gray-900 to-slate-900"
+  >
+    <div
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(1000px_600px_at_80%_10%,rgba(59,130,246,0.12),transparent),radial-gradient(900px_500px_at_10%_60%,rgba(100,116,139,0.10),transparent)]"
+    ></div>
+    <div class="pointer-events-none absolute inset-0 site-grid"></div>
 
-    <!-- List -->
-    <div class="container max-w-5xl mx-auto mt-14">
-      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <NuxtLink
-          class="border cursor-pointer border-neutral-400 group hover:border-white"
-          v-for="(project, index) in projects"
-          :key="index"
-          :to="`/projects/${project.slug}`"
-        >
-          <img
-            v-if="project.image"
-            :src="projectImageUrl(project.image)"
-            alt="Daniel Ponce"
-            class="object-cover w-full h-40 brightness-75 group-hover:brightness-100"
-          />
-          <div class="p-4">
-            <h3
-              class="mb-2 text-lg font-bold text-rose-800 group-hover:text-rose-500"
-            >{{ project.title }}</h3>
-            <p class="text-neutral-400 group-hover:text-white">{{ project.description }}</p>
-          </div>
-        </NuxtLink>
+    <section class="relative overflow-hidden">
+      <div
+        class="absolute inset-0 bg-linear-to-r from-blue-600/20 to-gray-600/20 backdrop-blur-3xl"
+      ></div>
+      <div class="relative container mx-auto px-6 py-16 lg:py-20">
+        <div class="text-center max-w-3xl mx-auto space-y-4">
+          <h1 class="text-4xl lg:text-6xl font-bold text-white leading-tight">
+            <span
+              class="block bg-linear-to-r from-blue-400 via-purple-500 to-gray-600 bg-clip-text text-transparent"
+            >
+              Proyectos
+            </span>
+          </h1>
+          <p class="text-xl text-gray-300 leading-relaxed">
+            Selección de trabajos recientes con enfoque en producto, rendimiento
+            y experiencia de usuario.
+          </p>
+        </div>
       </div>
-    </div>
-    <!-- end List -->
+    </section>
+
+    <section class="relative pb-16 pt-6 lg:pt-10">
+      <div class="relative container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <NuxtLink
+            v-for="project in orderedProjects"
+            :key="project.slug"
+            :to="`/projects/${project.slug}`"
+            class="bg-linear-to-br from-blue-500/10 to-gray-600/10 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card block"
+          >
+            <div v-if="project.image" class="mb-6 rounded-xl overflow-hidden">
+              <img
+                :src="projectImageUrl(project.image)"
+                :alt="project.title"
+                class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h3 class="text-2xl font-semibold text-white mb-4">
+              {{ project.title }}
+            </h3>
+            <p class="text-gray-300 mb-4">
+              {{ project.description }}
+            </p>
+            <span class="inline-flex items-center text-blue-400 hover:text-blue-300">
+              Ver detalle
+            </span>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -47,17 +68,23 @@ useHead({
 });
 
 const { data: projectsData } = await useAsyncData("projects", () =>
-  queryCollection("projects").order("stem", "DESC").all()
+  queryCollection("projects").all()
 );
 
-const projects = computed(() => projectsData.value ?? []);
+const projectOrder = [
+  "paymolt",
+  "jsonplaceholder",
+  "todo-app",
+  "guess-the-number-game",
+];
+
+const orderedProjects = computed(() => {
+  const projects = projectsData.value ?? [];
+  return projectOrder
+    .map((slug) => projects.find((project) => project.slug === slug))
+    .filter(Boolean);
+});
 const baseURL = useRuntimeConfig().app.baseURL;
 const projectImageUrl = (image) =>
   `${baseURL}projects/${encodeURIComponent(image)}`;
 </script>
-
-<style>
-body {
-  background: black;
-}
-</style>

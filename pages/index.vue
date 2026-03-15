@@ -133,7 +133,7 @@
                   />
                   <!-- Overlay effect -->
                   <div
-                    class="absolute inset-0 bg-gradient-to-t from-blue-500/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"
+                    class="absolute inset-0 bg-linear-to-t from-blue-500/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"
                   ></div>
                 </div>
               </div>
@@ -406,7 +406,7 @@
         <div class="relative mt-14">
           <!-- Timeline Line -->
           <div
-            class="absolute left-6 top-8 bottom-8 w-px -translate-x-1/2 bg-gradient-to-b from-blue-500/70 via-blue-500/20 to-slate-500/30"
+            class="absolute left-6 top-8 bottom-8 w-px -translate-x-1/2 bg-linear-to-b from-blue-500/70 via-blue-500/20 to-slate-500/30"
           ></div>
 
           <div class="space-y-10 relative">
@@ -832,222 +832,30 @@
           </span>
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Paymolt -->
-          <div
-            class="bg-linear-to-br from-blue-500/10 to-gray-600/10 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card"
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <NuxtLink
+            v-for="project in orderedProjects"
+            :key="project.slug"
+            :to="`/projects/${project.slug}`"
+            class="bg-linear-to-br from-blue-500/10 to-gray-600/10 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card block"
           >
-            <!-- Project Image -->
-            <div class="mb-6 rounded-xl overflow-hidden">
+            <div v-if="project.image" class="mb-6 rounded-xl overflow-hidden">
               <img
-                src="/projects/paymolt.png"
-                alt="Paymolt Project"
+                :src="projectImageUrl(project.image)"
+                :alt="project.title"
                 class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
               />
             </div>
-
-            <h3 class="text-2xl font-semibold text-white mb-4">Paymolt</h3>
-            <p class="text-gray-300 mb-4">
-              Aplicación para generar
-              <strong class="text-white"
-                >enlaces de pago con tarjeta de crédito o débito</strong
-              >
-              a través de internet.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span
-                class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs"
-                >PHP</span
-              >
-              <span
-                class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs"
-                >Laravel</span
-              >
-              <span
-                class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs"
-                >Vue.js</span
-              >
-              <span
-                class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs"
-                >Inertia</span
-              >
-              <span
-                class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs"
-                >Tailwind</span
-              >
-              <span
-                class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs"
-                >API Culqi</span
-              >
-            </div>
-            <a
-              href="https://github.com/dmpb/paymolt"
-              target="_blank"
-              class="inline-flex items-center text-blue-400 hover:text-blue-300"
-            >
-              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fill-rule="evenodd"
-                  d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-              Ver en GitHub
-            </a>
-          </div>
-
-          <!-- JSONPlaceholder -->
-          <div
-            class="bg-linear-to-br from-gray-500/10 to-slate-600/10 backdrop-blur-lg rounded-2xl p-8 border border-gray-500/20 hover:border-gray-500/40 transition-all duration-300 shimmer-card"
-          >
-            <!-- Project Image -->
-            <div class="mb-6 rounded-xl overflow-hidden">
-              <img
-                src="/projects/jsonplaceholder.png"
-                alt="JSONPlaceholder Project"
-                class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
-              />
-            </div>
-
             <h3 class="text-2xl font-semibold text-white mb-4">
-              JSONPlaceholder Clone
+              {{ project.title }}
             </h3>
             <p class="text-gray-300 mb-4">
-              API REST desarrollada para pruebas y desarrollo de aplicaciones.
+              {{ project.description }}
             </p>
-            <div class="mb-4">
-              <p class="text-gray-400 text-sm mb-2">Incluye endpoints para:</p>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-2 py-1 bg-gray-500/20 text-gray-300 rounded text-xs"
-                  >Usuarios</span
-                >
-                <span
-                  class="px-2 py-1 bg-gray-500/20 text-gray-300 rounded text-xs"
-                  >Posts</span
-                >
-                <span
-                  class="px-2 py-1 bg-gray-500/20 text-gray-300 rounded text-xs"
-                  >Comentarios</span
-                >
-                <span
-                  class="px-2 py-1 bg-gray-500/20 text-gray-300 rounded text-xs"
-                  >Tareas</span
-                >
-              </div>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span
-                class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs"
-                >PHP</span
-              >
-              <span
-                class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs"
-                >Laravel</span
-              >
-              <span
-                class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs"
-                >Vue.js</span
-              >
-              <span
-                class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs"
-                >API REST</span
-              >
-            </div>
-            <a
-              href="https://github.com/dmpb/jsonplaceholder"
-              target="_blank"
-              class="inline-flex items-center text-gray-400 hover:text-gray-300"
-            >
-              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fill-rule="evenodd"
-                  d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-              Ver en GitHub
-            </a>
-          </div>
-
-          <!-- Mapa 3D -->
-          <div
-            class="bg-linear-to-br from-slate-500/10 to-gray-600/10 backdrop-blur-lg rounded-2xl p-8 border border-slate-500/20 hover:border-slate-500/40 transition-all duration-300 shimmer-card"
-          >
-            <h3 class="text-2xl font-semibold text-white mb-4">
-              Mapa Inmobiliario 3D
-            </h3>
-            <p class="text-gray-300 mb-4">
-              Sistema interactivo para visualizar
-              <strong class="text-white"
-                >lotes y estado de ventas en tiempo real</strong
-              >.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span
-                class="px-2 py-1 bg-slate-500/20 text-slate-300 rounded text-xs"
-                >PHP</span
-              >
-              <span
-                class="px-2 py-1 bg-slate-500/20 text-slate-300 rounded text-xs"
-                >Laravel</span
-              >
-              <span
-                class="px-2 py-1 bg-slate-500/20 text-slate-300 rounded text-xs"
-                >PostgreSQL</span
-              >
-              <span
-                class="px-2 py-1 bg-slate-500/20 text-slate-300 rounded text-xs"
-                >AWS</span
-              >
-            </div>
-            <a
-              href="https://ventas.inmobitec.pe/mapa-gardenias"
-              target="_blank"
-              class="inline-flex items-center text-slate-400 hover:text-slate-300"
-            >
-              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"
-                ></path>
-              </svg>
-              Ver Demo
-            </a>
-          </div>
-
-          <!-- Tienda Online -->
-          <div
-            class="bg-linear-to-br from-gray-500/10 to-slate-600/10 backdrop-blur-lg rounded-2xl p-8 border border-gray-500/20 hover:border-gray-500/40 transition-all duration-300 shimmer-card"
-          >
-            <h3 class="text-2xl font-semibold text-white mb-4">
-              Tienda E-commerce
-            </h3>
-            <p class="text-gray-300 mb-4">
-              Sistema de e-commerce completo desarrollado con
-              <strong class="text-white"
-                >WordPress/WooCommerce y también desde cero con Laravel</strong
-              >
-              para mayor flexibilidad.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span
-                class="px-2 py-1 bg-gray-500/20 text-gray-300 rounded text-xs"
-                >PHP</span
-              >
-              <span
-                class="px-2 py-1 bg-gray-500/20 text-gray-300 rounded text-xs"
-                >Laravel</span
-              >
-              <span
-                class="px-2 py-1 bg-gray-500/20 text-gray-300 rounded text-xs"
-                >WordPress</span
-              >
-              <span
-                class="px-2 py-1 bg-gray-500/20 text-gray-300 rounded text-xs"
-                >WooCommerce</span
-              >
-            </div>
-          </div>
+            <span class="inline-flex items-center text-blue-400 hover:text-blue-300">
+              Ver detalle
+            </span>
+          </NuxtLink>
         </div>
       </div>
     </section>
@@ -1125,6 +933,28 @@ useHead(() => ({
     },
   ],
 }));
+
+const projectOrder = [
+  "paymolt",
+  "jsonplaceholder",
+  "todo-app",
+  "guess-the-number-game",
+];
+
+const { data: projectsData } = await useAsyncData("home-projects", () =>
+  queryCollection("projects").all()
+);
+
+const orderedProjects = computed(() => {
+  const projects = projectsData.value ?? [];
+  return projectOrder
+    .map((slug) => projects.find((project) => project.slug === slug))
+    .filter(Boolean);
+});
+
+const baseURL = useRuntimeConfig().app.baseURL;
+const projectImageUrl = (image) =>
+  `${baseURL}projects/${encodeURIComponent(image)}`;
 </script>
 
 <style scoped>
