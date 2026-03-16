@@ -1,15 +1,15 @@
 <template>
   <div
-    class="relative min-h-screen bg-linear-to-br from-slate-900 via-gray-900 to-slate-900"
+    class="relative min-h-screen app-shell"
   >
     <div
-      class="pointer-events-none absolute inset-0 bg-[radial-gradient(1000px_600px_at_80%_10%,rgba(59,130,246,0.12),transparent),radial-gradient(900px_500px_at_10%_60%,rgba(100,116,139,0.10),transparent)]"
+      class="pointer-events-none absolute inset-0 app-glow"
     ></div>
     <div class="pointer-events-none absolute inset-0 site-grid"></div>
 
     <section class="relative overflow-hidden">
       <div
-        class="absolute inset-0 bg-linear-to-r from-blue-600/20 to-gray-600/20 backdrop-blur-3xl"
+        class="absolute inset-0 hero-overlay backdrop-blur-3xl"
       ></div>
       <div class="relative container mx-auto px-6 pt-10 pb-16 lg:py-20">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -52,7 +52,7 @@
             <div
               class="relative bg-linear-to-r from-blue-500 to-gray-600 rounded-3xl p-1"
             >
-              <div class="bg-slate-900 rounded-3xl p-6">
+              <div class="surface-deep rounded-3xl p-6">
                 <div class="relative overflow-hidden rounded-2xl">
                   <img
                     :src="projectImageUrl(project.image)"
@@ -86,7 +86,7 @@
           <NuxtLink
             v-if="prev"
             :to="prev.path"
-            class="group bg-linear-to-br from-slate-500/10 to-gray-600/10 backdrop-blur-lg rounded-2xl p-6 border border-slate-500/20 hover:border-slate-500/40 transition-all duration-300"
+            class="group card-surface backdrop-blur-lg rounded-2xl p-6 border border-slate-500/20 hover:border-slate-500/40 transition-all duration-300"
           >
             <p class="text-sm text-slate-400 mb-2">Proyecto anterior</p>
             <div class="flex items-center text-white group-hover:text-blue-300">
@@ -98,7 +98,7 @@
           <NuxtLink
             v-if="next"
             :to="next.path"
-            class="group bg-linear-to-br from-gray-500/10 to-slate-600/10 backdrop-blur-lg rounded-2xl p-6 border border-gray-500/20 hover:border-gray-500/40 transition-all duration-300 md:text-right"
+            class="group card-surface backdrop-blur-lg rounded-2xl p-6 border border-gray-500/20 hover:border-gray-500/40 transition-all duration-300 md:text-right"
           >
             <p class="text-sm text-gray-400 mb-2">Siguiente proyecto</p>
             <div

@@ -13,6 +13,18 @@
 
     gtag('config', 'G-BR27DERQBP');
   </script>
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var system = window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+        var resolved = stored === 'light' || stored === 'dark' ? stored : system;
+        document.documentElement.setAttribute('data-theme', resolved);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 
 <body {{ BODY_ATTRS }}>

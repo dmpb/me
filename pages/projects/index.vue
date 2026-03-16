@@ -1,15 +1,15 @@
 <template>
   <div
-    class="relative min-h-screen bg-linear-to-br from-slate-900 via-gray-900 to-slate-900"
+    class="relative min-h-screen app-shell"
   >
     <div
-      class="pointer-events-none absolute inset-0 bg-[radial-gradient(1000px_600px_at_80%_10%,rgba(59,130,246,0.12),transparent),radial-gradient(900px_500px_at_10%_60%,rgba(100,116,139,0.10),transparent)]"
+      class="pointer-events-none absolute inset-0 app-glow"
     ></div>
     <div class="pointer-events-none absolute inset-0 site-grid"></div>
 
     <section class="relative overflow-hidden">
       <div
-        class="absolute inset-0 bg-linear-to-r from-blue-600/20 to-gray-600/20 backdrop-blur-3xl"
+        class="absolute inset-0 hero-overlay backdrop-blur-3xl"
       ></div>
       <div class="relative container mx-auto px-6 py-10 lg:py-20">
         <div class="text-center max-w-3xl mx-auto space-y-4">
@@ -35,7 +35,7 @@
             v-for="project in orderedProjects"
             :key="project.slug"
             :to="`/projects/${project.slug}`"
-            class="bg-linear-to-br from-blue-500/10 to-gray-600/10 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card block"
+            class="card-surface backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card block"
           >
             <div v-if="project.image" class="mb-6 rounded-xl overflow-hidden">
               <img
@@ -44,7 +44,7 @@
                 class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
               />
             </div>
-            <h3 class="text-2xl font-semibold text-white mb-4">
+            <h3 class="text-xl font-semibold text-white mb-4">
               {{ project.title }}
             </h3>
             <p class="text-gray-300 mb-4">

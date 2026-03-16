@@ -1,15 +1,15 @@
 <template>
   <div
-    class="relative min-h-screen bg-linear-to-br from-slate-900 via-gray-900 to-slate-900"
+    class="relative min-h-screen app-shell"
   >
     <div
-      class="pointer-events-none absolute inset-0 bg-[radial-gradient(1000px_600px_at_80%_10%,rgba(59,130,246,0.12),transparent),radial-gradient(900px_500px_at_10%_60%,rgba(100,116,139,0.10),transparent)]"
+      class="pointer-events-none absolute inset-0 app-glow"
     ></div>
     <div class="pointer-events-none absolute inset-0 site-grid"></div>
     <!-- Hero Section -->
     <section class="relative overflow-hidden">
       <div
-        class="absolute inset-0 bg-linear-to-r from-blue-600/20 to-gray-600/20 backdrop-blur-3xl"
+        class="absolute inset-0 hero-overlay backdrop-blur-3xl"
       ></div>
       <div class="relative container mx-auto px-6 pt-10 pb-16 md:py-20">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -124,7 +124,7 @@
             <div
               class="relative bg-linear-to-r from-blue-500 to-gray-600 rounded-3xl p-1"
             >
-              <div class="bg-slate-900 rounded-3xl p-8">
+              <div class="surface-deep rounded-3xl p-8">
                 <div class="relative overflow-hidden rounded-2xl">
                   <img
                     src="/projects/profile-image.png"
@@ -157,7 +157,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <!-- Lenguajes -->
           <div
-            class="group bg-linear-to-br from-blue-500/10 to-gray-600/10 backdrop-blur-lg rounded-2xl p-6 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card"
+            class="group card-surface backdrop-blur-lg rounded-2xl p-6 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card"
           >
             <h3 class="text-xl font-semibold text-blue-400 mb-4">Lenguajes</h3>
             <div class="flex flex-wrap gap-2">
@@ -182,7 +182,7 @@
 
           <!-- Frameworks -->
           <div
-            class="group bg-linear-to-br from-gray-500/10 to-slate-600/10 backdrop-blur-lg rounded-2xl p-6 border border-gray-500/20 hover:border-gray-500/40 transition-all duration-300 shimmer-card"
+            class="group card-surface backdrop-blur-lg rounded-2xl p-6 border border-gray-500/20 hover:border-gray-500/40 transition-all duration-300 shimmer-card"
           >
             <h3 class="text-xl font-semibold text-gray-400 mb-4">Frameworks</h3>
             <div class="flex flex-wrap gap-2">
@@ -207,7 +207,7 @@
 
           <!-- Frontend -->
           <div
-            class="group bg-linear-to-br from-slate-500/10 to-gray-600/10 backdrop-blur-lg rounded-2xl p-6 border border-slate-500/20 hover:border-slate-500/40 transition-all duration-300 shimmer-card"
+            class="group card-surface backdrop-blur-lg rounded-2xl p-6 border border-slate-500/20 hover:border-slate-500/40 transition-all duration-300 shimmer-card"
           >
             <h3 class="text-xl font-semibold text-slate-400 mb-4">Frontend</h3>
             <div class="flex flex-wrap gap-2">
@@ -232,7 +232,7 @@
 
           <!-- Bases de Datos -->
           <div
-            class="group bg-linear-to-br from-blue-500/10 to-gray-600/10 backdrop-blur-lg rounded-2xl p-6 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card"
+            class="group card-surface backdrop-blur-lg rounded-2xl p-6 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card"
           >
             <h3 class="text-xl font-semibold text-blue-400 mb-4">
               Bases de Datos
@@ -251,7 +251,7 @@
 
           <!-- Cloud y DevOps -->
           <div
-            class="group bg-linear-to-br from-gray-500/10 to-slate-600/10 backdrop-blur-lg rounded-2xl p-6 border border-gray-500/20 hover:border-gray-500/40 transition-all duration-300 shimmer-card"
+            class="group card-surface backdrop-blur-lg rounded-2xl p-6 border border-gray-500/20 hover:border-gray-500/40 transition-all duration-300 shimmer-card"
           >
             <h3 class="text-xl font-semibold text-gray-400 mb-4">
               Cloud y DevOps
@@ -274,7 +274,7 @@
 
           <!-- Herramientas -->
           <div
-            class="group bg-linear-to-br from-slate-500/10 to-gray-600/10 backdrop-blur-lg rounded-2xl p-6 border border-slate-500/20 hover:border-slate-500/40 transition-all duration-300 shimmer-card"
+            class="group card-surface backdrop-blur-lg rounded-2xl p-6 border border-slate-500/20 hover:border-slate-500/40 transition-all duration-300 shimmer-card"
           >
             <h3 class="text-xl font-semibold text-slate-400 mb-4">
               Herramientas
@@ -307,7 +307,7 @@
         <!-- Otros -->
         <div class="mt-8">
           <div
-            class="bg-linear-to-br from-blue-500/10 to-gray-600/10 backdrop-blur-lg rounded-2xl p-6 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card"
+            class="card-surface backdrop-blur-lg rounded-2xl p-6 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card"
           >
             <h3 class="text-xl font-semibold text-blue-400 mb-4">Otros</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -416,7 +416,7 @@
                 class="absolute left-6 top-8 w-3.5 h-3.5 -translate-x-1/2 bg-blue-500 rounded-full ring-4 ring-slate-900"
               ></div>
               <div
-                class="group bg-linear-to-br from-slate-800/60 via-slate-900/60 to-slate-800/30 backdrop-blur-lg rounded-2xl p-8 border border-slate-700/60 hover:border-blue-500/50 transition-all duration-300 shimmer-card"
+                class="group card-surface backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card"
               >
                 <div
                   class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6"
@@ -479,7 +479,7 @@
                 class="absolute left-6 top-8 w-3.5 h-3.5 -translate-x-1/2 bg-blue-500 rounded-full ring-4 ring-slate-900"
               ></div>
               <div
-                class="group bg-linear-to-br from-slate-800/60 via-slate-900/60 to-slate-800/30 backdrop-blur-lg rounded-2xl p-8 border border-slate-700/60 hover:border-blue-500/50 transition-all duration-300 shimmer-card"
+                class="group card-surface backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card"
               >
                 <div
                   class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6"
@@ -538,7 +538,7 @@
                 class="absolute left-6 top-8 w-3.5 h-3.5 -translate-x-1/2 bg-blue-500 rounded-full ring-4 ring-slate-900"
               ></div>
               <div
-                class="group bg-linear-to-br from-slate-800/60 via-slate-900/60 to-slate-800/30 backdrop-blur-lg rounded-2xl p-8 border border-slate-700/60 hover:border-blue-500/50 transition-all duration-300 shimmer-card"
+                class="group card-surface backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card"
               >
                 <div
                   class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6"
@@ -620,7 +620,7 @@
                 class="absolute left-6 top-8 w-3.5 h-3.5 -translate-x-1/2 bg-blue-500 rounded-full ring-4 ring-slate-900"
               ></div>
               <div
-                class="group bg-linear-to-br from-slate-800/60 via-slate-900/60 to-slate-800/30 backdrop-blur-lg rounded-2xl p-8 border border-slate-700/60 hover:border-blue-500/50 transition-all duration-300 shimmer-card"
+                class="group card-surface backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card"
               >
                 <div
                   class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6"
@@ -699,7 +699,7 @@
                 class="absolute left-6 top-8 w-3.5 h-3.5 -translate-x-1/2 bg-blue-500 rounded-full ring-4 ring-slate-900"
               ></div>
               <div
-                class="group bg-linear-to-br from-slate-800/60 via-slate-900/60 to-slate-800/30 backdrop-blur-lg rounded-2xl p-8 border border-slate-700/60 hover:border-blue-500/50 transition-all duration-300 shimmer-card"
+                class="group card-surface backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card"
               >
                 <div
                   class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6"
@@ -768,7 +768,7 @@
                 class="absolute left-6 top-8 w-3.5 h-3.5 -translate-x-1/2 bg-blue-500 rounded-full ring-4 ring-slate-900"
               ></div>
               <div
-                class="group bg-linear-to-br from-slate-800/60 via-slate-900/60 to-slate-800/30 backdrop-blur-lg rounded-2xl p-8 border border-slate-700/60 hover:border-blue-500/50 transition-all duration-300 shimmer-card"
+                class="group card-surface backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card"
               >
                 <div
                   class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6"
@@ -837,7 +837,7 @@
             v-for="project in orderedProjects"
             :key="project.slug"
             :to="`/projects/${project.slug}`"
-            class="bg-linear-to-br from-blue-500/10 to-gray-600/10 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card block"
+            class="card-surface backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card block"
           >
             <div v-if="project.image" class="mb-6 rounded-xl overflow-hidden">
               <img
@@ -846,7 +846,7 @@
                 class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
               />
             </div>
-            <h3 class="text-2xl font-semibold text-white mb-4">
+            <h3 class="text-xl font-semibold text-white mb-4">
               {{ project.title }}
             </h3>
             <p class="text-gray-300 mb-4">
@@ -880,7 +880,7 @@
           <div
             v-for="certificate in featuredCertificates"
             :key="certificate.image"
-            class="bg-linear-to-br from-blue-500/10 to-gray-600/10 backdrop-blur-lg rounded-2xl p-6 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card"
+            class="card-surface backdrop-blur-lg rounded-2xl p-6 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card"
           >
             <div class="mb-5 rounded-xl overflow-hidden">
               <img
@@ -889,7 +889,7 @@
                 class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
               />
             </div>
-            <h3 class="text-2xl font-semibold text-white mb-3">
+            <h3 class="text-xl font-semibold text-white mb-3">
               {{ certificate.title }}
             </h3>
             <p class="text-gray-300 text-sm uppercase tracking-widest">
@@ -924,7 +924,7 @@
         </h2>
 
         <div
-          class="bg-linear-to-r from-blue-500/10 to-gray-600/10 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 max-w-2xl mx-auto hover-lift"
+          class="card-surface backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 max-w-2xl mx-auto hover-lift"
         >
           <h3 class="text-2xl font-semibold text-white mb-2">
             Desarrollo de Software
