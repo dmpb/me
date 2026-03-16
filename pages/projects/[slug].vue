@@ -11,7 +11,7 @@
       <div
         class="absolute inset-0 bg-linear-to-r from-blue-600/20 to-gray-600/20 backdrop-blur-3xl"
       ></div>
-      <div class="relative container mx-auto px-6 py-16 lg:py-20">
+      <div class="relative container mx-auto px-6 pt-10 pb-16 lg:py-20">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div class="space-y-5">
             <NuxtLink
@@ -147,3 +147,19 @@ const baseURL = useRuntimeConfig().app.baseURL;
 const projectImageUrl = (image) =>
   `${baseURL}projects/${encodeURIComponent(image)}`;
 </script>
+
+<style scoped>
+.site-grid {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(to right, rgba(148, 163, 184, 0.16) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.16) 1px, transparent 1px),
+    linear-gradient(110deg, rgba(59, 130, 246, 0.1) 0%, transparent 45%, transparent 55%, rgba(100, 116, 139, 0.08) 100%);
+  background-size: 96px 96px, 96px 96px, 16px 16px, 16px 16px, 100% 100%;
+  background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+  opacity: 0.52;
+  mix-blend-mode: screen;
+  mask-image: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.80) 40%, rgba(0, 0, 0, 0.55) 55%, transparent 80%);
+}
+</style>

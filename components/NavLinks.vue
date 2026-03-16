@@ -13,6 +13,14 @@
         >Proyectos</NuxtLink
       >
     </li>
+    <li>
+      <NuxtLink
+        to="/certificates"
+        class="text-blue-200 hover:text-blue-100"
+        data-test="link"
+        >Certificados</NuxtLink
+      >
+    </li>
   </ul>
 </template>
 

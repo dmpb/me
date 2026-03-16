@@ -17,12 +17,12 @@
             <span
               class="block bg-linear-to-r from-blue-400 via-purple-500 to-gray-600 bg-clip-text text-transparent"
             >
-              Proyectos
+              Certificados
             </span>
           </h1>
           <p class="text-xl text-gray-300 leading-relaxed">
-            Selección de trabajos recientes con enfoque en producto, rendimiento
-            y experiencia de usuario.
+            Lista completa de certificados obtenidos en formación y
+            especialización.
           </p>
         </div>
       </div>
@@ -31,29 +31,25 @@
     <section class="relative pb-16 pt-6 lg:pt-10">
       <div class="relative container mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <NuxtLink
-            v-for="project in orderedProjects"
-            :key="project.slug"
-            :to="`/projects/${project.slug}`"
-            class="bg-linear-to-br from-blue-500/10 to-gray-600/10 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card block"
+          <div
+            v-for="certificate in certificates"
+            :key="certificate.image"
+            class="bg-linear-to-br from-blue-500/10 to-gray-600/10 backdrop-blur-lg rounded-2xl p-6 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card"
           >
-            <div v-if="project.image" class="mb-6 rounded-xl overflow-hidden">
+            <div class="mb-5 rounded-xl overflow-hidden">
               <img
-                :src="projectImageUrl(project.image)"
-                :alt="project.title"
+                :src="certificateImageUrl(certificate.image)"
+                :alt="certificate.title"
                 class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
               />
             </div>
-            <h3 class="text-2xl font-semibold text-white mb-4">
-              {{ project.title }}
+            <h3 class="text-2xl font-semibold text-white mb-3">
+              {{ certificate.title }}
             </h3>
-            <p class="text-gray-300 mb-4">
-              {{ project.description }}
+            <p class="text-gray-300 text-sm uppercase tracking-widest">
+              {{ certificate.date }}
             </p>
-            <span class="inline-flex items-center text-blue-400 hover:text-blue-300">
-              Ver detalle
-            </span>
-          </NuxtLink>
+          </div>
         </div>
       </div>
     </section>
@@ -62,29 +58,40 @@
 
 <script setup>
 useHead({
-  title: "Daniel Ponce - Proyectos",
+  title: "Daniel Ponce - Certificados",
 });
 
-const { data: projectsData } = await useAsyncData("projects", () =>
-  queryCollection("projects").all()
-);
-
-const projectOrder = [
-  "paymolt",
-  "jsonplaceholder",
-  "todo-app",
-  "guess-the-number-game",
+const certificates = [
+  {
+    image: "9-ruta.jpg",
+    title: "Frontend a profundidad con Vue.js",
+    date: "Aprobado el 31 de enero, 2022",
+  },
+  {
+    image: "10-ruta.jpg",
+    title: "Desarrollo Web Backend con PHP",
+    date: "Aprobado el 23 de diciembre, 2021",
+  },
+  {
+    image: "11-ruta.jpg",
+    title: "Business Management",
+    date: "Aprobado el 24 de agosto, 2021",
+  },
+  {
+    image: "37-ruta.jpg",
+    title: "Desarrollo con WordPress",
+    date: "Aprobado el 22 de agosto, 2021",
+  },
+  {
+    image: "6842-ruta.jpg",
+    title: "Finanzas e Inversiones",
+    date: "Aprobado el 11 de junio, 2021",
+  },
 ];
 
-const orderedProjects = computed(() => {
-  const projects = projectsData.value ?? [];
-  return projectOrder
-    .map((slug) => projects.find((project) => project.slug === slug))
-    .filter(Boolean);
-});
 const baseURL = useRuntimeConfig().app.baseURL;
-const projectImageUrl = (image) =>
-  `${baseURL}projects/${encodeURIComponent(image)}`;
+const certificateImageUrl = (image) =>
+  `${baseURL}certificates/${encodeURIComponent(image)}`;
 </script>
 
 <style scoped>

@@ -11,7 +11,7 @@
       <div
         class="absolute inset-0 bg-linear-to-r from-blue-600/20 to-gray-600/20 backdrop-blur-3xl"
       ></div>
-      <div class="relative container mx-auto px-6 py-20">
+      <div class="relative container mx-auto px-6 pt-10 pb-16 md:py-20">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <!-- Profile Content -->
           <div class="space-y-6">
@@ -21,7 +21,7 @@
               <span class="w-2 h-2 bg-white rounded-full mr-2"></span>
               Disponible para proyectos
             </div>
-            <h1 class="text-5xl lg:text-7xl font-bold text-white leading-tight">
+            <h1 class="text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
               Daniel Marcelo
               <span
                 class="block bg-linear-to-r from-blue-400 via-purple-500 to-gray-600 bg-clip-text text-transparent name-animate"
@@ -144,7 +144,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="py-20 relative">
+    <section class="py-16 md:py-20 relative">
       <div class="relative container mx-auto px-6">
         <h2 class="text-4xl font-bold text-white mb-12 text-center">
           <span
@@ -392,7 +392,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section class="py-20 relative">
+    <section class="py-16 md:py-20 relative">
       <div class="relative container mx-auto px-6">
         <h2 class="text-4xl font-bold text-white mb-12 text-center">
           <span
@@ -822,7 +822,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="py-20 relative">
+    <section class="py-16 md:py-20 relative">
       <div class="relative container mx-auto px-6">
         <h2 class="text-4xl font-bold text-white mb-12 text-center">
           <span
@@ -860,8 +860,57 @@
       </div>
     </section>
 
+    <!-- Certificates Section -->
+    <section class="py-16 md:py-20 relative">
+      <div class="relative container mx-auto px-6">
+        <div class="flex flex-col items-center gap-4 text-center mb-12">
+          <h2 class="text-4xl font-bold text-white">
+            <span
+              class="bg-linear-to-r from-blue-400 to-gray-600 bg-clip-text text-transparent"
+            >
+              Certificados
+            </span>
+          </h2>
+          <p class="text-gray-300 max-w-2xl">
+            Logros de formación continua y especialización en desarrollo web.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            v-for="certificate in featuredCertificates"
+            :key="certificate.image"
+            class="bg-linear-to-br from-blue-500/10 to-gray-600/10 backdrop-blur-lg rounded-2xl p-6 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 shimmer-card"
+          >
+            <div class="mb-5 rounded-xl overflow-hidden">
+              <img
+                :src="certificateImageUrl(certificate.image)"
+                :alt="certificate.title"
+                class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <h3 class="text-2xl font-semibold text-white mb-3">
+              {{ certificate.title }}
+            </h3>
+            <p class="text-gray-300 text-sm uppercase tracking-widest">
+              {{ certificate.date }}
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-10 text-center">
+          <NuxtLink
+            to="/certificates"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-linear-to-r from-blue-500 to-gray-600 text-white font-semibold hover:opacity-90 transition-opacity"
+          >
+            Ver todos los certificados
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+
     <!-- Education Section -->
-    <section class="py-20 relative">
+    <section class="py-16 md:py-20 relative">
       <div
         class="absolute inset-0 bg-linear-to-t from-blue-900/50 to-transparent"
       ></div>
@@ -888,7 +937,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 relative">
+    <section class="py-16 md:py-20 relative">
       <div class="relative container mx-auto px-6 text-center">
         <div
           class="bg-linear-to-r from-blue-500 to-gray-600 rounded-3xl p-12 max-w-4xl mx-auto shimmer-card"
@@ -952,9 +1001,41 @@ const orderedProjects = computed(() => {
     .filter(Boolean);
 });
 
+const certificates = [
+  {
+    image: "9-ruta.jpg",
+    title: "Frontend a profundidad con Vue.js",
+    date: "Aprobado el 31 de enero, 2022",
+  },
+  {
+    image: "10-ruta.jpg",
+    title: "Desarrollo Web Backend con PHP",
+    date: "Aprobado el 23 de diciembre, 2021",
+  },
+  {
+    image: "11-ruta.jpg",
+    title: "Business Management",
+    date: "Aprobado el 24 de agosto, 2021",
+  },
+  {
+    image: "37-ruta.jpg",
+    title: "Desarrollo con WordPress",
+    date: "Aprobado el 22 de agosto, 2021",
+  },
+  {
+    image: "6842-ruta.jpg",
+    title: "Finanzas e Inversiones",
+    date: "Aprobado el 11 de junio, 2021",
+  },
+];
+
+const featuredCertificates = computed(() => certificates.slice(0, 3));
+
 const baseURL = useRuntimeConfig().app.baseURL;
 const projectImageUrl = (image) =>
   `${baseURL}projects/${encodeURIComponent(image)}`;
+const certificateImageUrl = (image) =>
+  `${baseURL}certificates/${encodeURIComponent(image)}`;
 </script>
 
 <style scoped>
@@ -986,6 +1067,6 @@ const projectImageUrl = (image) =>
   background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
   opacity: 0.52;
   mix-blend-mode: screen;
-  mask-image: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.55) 40%, rgba(0, 0, 0, 0.2) 55%, transparent 70%);
+  mask-image: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.80) 40%, rgba(0, 0, 0, 0.55) 70%, transparent 90%);
 }
 </style>
