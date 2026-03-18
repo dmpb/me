@@ -1,0 +1,1 @@
+import{_ as s,o,c as r,v as n}from"./DApn2thR.js";const t={};function c(e,a){return o(),r("ul",null,[n(e.$slots,"default")])}const _=Object.assign(s(t,[["render",c]]),{__name:"ProseUl"});export{_ as default};
