@@ -73,6 +73,7 @@ const projectOrder = [
   "paymolt",
   "jsonplaceholder",
   "todo-app",
+  "tic-tac-toe-react",
   "guess-the-number-game",
 ];
 
