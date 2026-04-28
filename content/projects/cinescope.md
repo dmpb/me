@@ -11,6 +11,8 @@ CineScope es una aplicación web inspirada en Netflix que permite explorar pelí
 
 El proyecto está enfocado en ofrecer una experiencia de usuario moderna, rápida y visualmente atractiva, aplicando buenas prácticas de desarrollo frontend, arquitectura limpia y optimización de rendimiento.
 
+> **Demo en vivo:** [cine-scope-hazel.vercel.app](https://cine-scope-hazel.vercel.app/)
+
 
 ## 🚀 Funcionalidades
 

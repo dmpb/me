@@ -984,6 +984,7 @@ useHead(() => ({
 }));
 
 const projectOrder = [
+  "perulytics",
   "cinescope",
   "paymolt",
   "jsonplaceholder",

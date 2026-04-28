@@ -70,6 +70,7 @@ const { data: projectsData } = await useAsyncData("projects", () =>
 );
 
 const projectOrder = [
+  "perulytics",
   "cinescope",
   "paymolt",
   "jsonplaceholder",
