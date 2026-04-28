@@ -984,6 +984,7 @@ useHead(() => ({
 }));
 
 const projectOrder = [
+  "cinescope",
   "paymolt",
   "jsonplaceholder",
   "todo-app",
